@@ -55,3 +55,26 @@
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
+
+
+  const filterButtons = document.querySelectorAll('.tab-btn');
+  const productCards = document.querySelectorAll('.product-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // 1. Remover classe 'active' de todos os botões e adicionar no clicado
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const filterValue = button.getAttribute('data-filter');
+
+      // 2. Filtrar os produtos
+      productCards.forEach(card => {
+        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+          card.style.display = 'block'; // Mostra o produto
+        } else {
+          card.style.display = 'none';  // Esconde o produto
+        }
+      });
+    });
+  });

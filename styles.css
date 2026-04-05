@@ -1134,3 +1134,22 @@
       .why-grid { grid-template-columns: 1fr; }
       .hero-logo img { height: 90px; }
     }
+
+
+
+
+
+
+.product-card {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Quando o card aparecer, você pode adicionar uma animação de fade */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.product-card[style*="display: block"] {
+  animation: fadeIn 0.4s ease forwards;
+}
