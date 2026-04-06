@@ -25,7 +25,7 @@
     const category = document.querySelector('select').value || 'produtos';
     const msg = document.querySelector('textarea').value || '';
     const text = `Olá! Sou ${name}${phone ? ' ('+phone+')' : ''}. Tenho interesse em: ${category}${msg ? '. Mensagem: '+msg : ''}`;
-    window.open(`https://wa.me/5579999999999?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://wa.me/5579981156272?text=${encodeURIComponent(text)}`, '_blank');
   }
 
   // Smooth scroll for nav links
