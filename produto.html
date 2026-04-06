@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">Produto — MEGA IMPORTS</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --gold: #C9A84C;
+            --gold-light: #E8C96A;
+            --gold-dark: #8B6914;
+            --black: #0A0A0A;
+            --dark: #111111;
+            --dark2: #1A1A1A;
+            --dark3: #222222;
+            --white: #FAFAFA;
+            --text-muted: #888888;
+            --text-light: #CCCCCC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dark);
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 48px;
+            background: rgba(10, 10, 10, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 44px;
+            filter: drop-shadow(0 0 10px rgba(201, 168, 76, 0.4));
+        }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover {
+            color: var(--gold);
+        }
+
+        .nav-wa {
+            background: #25D366;
+            color: white;
+            padding: 10px 22px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-wa:hover {
+            background: #1EBE5B;
+            transform: translateY(-1px);
+        }
+
+        /* ─── BREADCRUMB ─── */
+        .breadcrumb {
+            padding: 100px 48px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .breadcrumb a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--gold);
+        }
+
+        .breadcrumb span {
+            color: var(--gold);
+        }
+
+        /* ─── PRODUCT HERO ─── */
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: calc(100vh - 80px);
+            margin-top: 16px;
+        }
+
+        /* ─── CAROUSEL ─── */
+        .carousel-wrap {
+            position: relative;
+            background: var(--dark2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .carousel-main {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            min-height: 520px;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 140px;
+            opacity: 0;
+            transform: scale(0.96);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--dark2);
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .carousel-badge-wrap {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .badge-new {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .badge-imported {
+            background: transparent;
+            border: 1px solid rgba(201, 168, 76, 0.5);
+            color: var(--gold);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .carousel-dot.active {
+            background: var(--gold);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .carousel-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 16px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .arrow-btn {
+            width: 42px;
+            height: 42px;
+            background: rgba(10, 10, 10, 0.7);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+            pointer-events: all;
+            transition: all 0.3s;
+            backdrop-filter: blur(8px);
+        }
+
+        .arrow-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+            border-color: var(--gold);
+        }
+
+        .thumbs-strip {
+            display: flex;
+            gap: 2px;
+            padding: 12px;
+            background: var(--dark3);
+            overflow-x: auto;
+        }
+
+        .thumb {
+            width: 72px;
+            height: 72px;
+            flex-shrink: 0;
+            background: var(--dark2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .thumb.active {
+            border-color: var(--gold);
+        }
+
+        .thumb:hover {
+            border-color: rgba(201, 168, 76, 0.5);
+        }
+
+        /* ─── PRODUCT INFO ─── */
+        .product-info-panel {
+            padding: 52px 52px 52px 48px;
+            background: var(--dark);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .product-category-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .product-main-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(30px, 3.5vw, 46px);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--white);
+        }
+
+        .product-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-top: -16px;
+        }
+
+        /* Rating */
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars {
+            color: var(--gold);
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        .rating-count {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* Separator */
+        .sep {
+            height: 1px;
+            background: linear-gradient(to right, rgba(201, 168, 76, 0.3), transparent);
+        }
+
+        /* Description */
+        .desc-title {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .desc-text {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        /* Specs */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .spec-item {
+            background: var(--dark2);
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            border-left: 2px solid rgba(201, 168, 76, 0.3);
+        }
+
+        .spec-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .spec-value {
+            font-size: 12px;
+            color: var(--white);
+            font-weight: 400;
+        }
+
+        /* Size selector */
+        .size-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .size-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .size-btn {
+            width: 48px;
+            height: 40px;
+            background: var(--dark3);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .size-btn:hover {
+            border-color: var(--gold);
+            color: var(--white);
+        }
+
+        .size-btn.selected {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--black);
+        }
+
+        .size-btn.unavailable {
+            opacity: 0.3;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+
+        /* Payment Methods */
+        .payment-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .payment-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .payment-chip {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--dark2);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            padding: 8px 14px;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: border-color 0.2s;
+        }
+
+        .payment-chip:hover {
+            border-color: rgba(201, 168, 76, 0.4);
+        }
+
+        .payment-chip-icon {
+            font-size: 16px;
+        }
+
+        .installment-note {
+            background: rgba(201, 168, 76, 0.07);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            padding: 12px 16px;
+            font-size: 12px;
+            color: var(--gold);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Delivery */
+        .delivery-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .delivery-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 16px;
+            background: var(--dark2);
+            border: 1px solid rgba(201, 168, 76, 0.1);
+            transition: border-color 0.2s;
+        }
+
+        .delivery-option:hover {
+            border-color: rgba(201, 168, 76, 0.3);
+        }
+
+        .delivery-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .delivery-name {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--white);
+            margin-bottom: 3px;
+        }
+
+        .delivery-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .delivery-tag {
+            margin-left: auto;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            flex-shrink: 0;
+            align-self: center;
+        }
+
+        .tag-free {
+            background: rgba(37, 211, 102, 0.15);
+            color: #25D366;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+        }
+
+        .tag-fast {
+            background: rgba(201, 168, 76, 0.15);
+            color: var(--gold);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+        }
+
+        /* CTA */
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #25D366;
+            color: white;
+            padding: 18px 32px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1EBE5B;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-consult {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--gold);
+            padding: 16px 32px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(201, 168, 76, 0.4);
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+        }
+
+        .btn-consult:hover {
+            background: rgba(201, 168, 76, 0.08);
+            border-color: var(--gold);
+        }
+
+        .trust-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .trust-icon {
+            color: var(--gold);
+            font-size: 13px;
+        }
+
+        /* ─── RELATED SECTION ─── */
+        .related-section {
+            padding: 80px 48px;
+            background: var(--dark2);
+            border-top: 1px solid rgba(201, 168, 76, 0.1);
+        }
+
+        .related-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .related-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .related-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 300;
+        }
+
+        .related-title em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .related-card {
+            background: var(--dark);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .related-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .related-card:hover .related-img {
+            transform: scale(1.06);
+        }
+
+        .related-img-wrap {
+            overflow: hidden;
+            background: var(--dark3);
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+        }
+
+        .related-img {
+            transition: transform 0.5s ease;
+        }
+
+        .related-info {
+            padding: 16px;
+            border-top: 1px solid rgba(201, 168, 76, 0.1);
+        }
+
+        .related-cat {
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .related-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .related-brand {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* ─── FLOATING WA ─── */
+        .floating-wa {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 999;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+            transition: all 0.3s;
+            animation: floatPulse 2.5s ease-in-out infinite;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes floatPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+            }
+
+            50% {
+                box-shadow: 0 8px 50px rgba(37, 211, 102, 0.7);
+            }
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--dark3);
+            border-top: 1px solid rgba(201, 168, 76, 0.1);
+            padding: 28px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        footer img {
+            height: 40px;
+            filter: drop-shadow(0 0 8px rgba(201, 168, 76, 0.3));
+        }
+
+        .footer-copy {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .footer-copy span {
+            color: var(--gold);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1024px) {
+            .product-hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .carousel-main {
+                min-height: 420px;
+            }
+
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav {
+                padding: 12px 24px;
+            }
+
+            .breadcrumb {
+                padding: 90px 24px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-info-panel {
+                padding: 32px 24px;
+            }
+
+            .related-section {
+                padding: 60px 24px;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            footer {
+                padding: 24px;
+            }
+
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .trust-row {
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FLOATING WA -->
+    <a href="#" id="float-wa" class="floating-wa" target="_blank">💬</a>
+
+    <!-- ─── NAV ─── -->
+    <nav>
+        <div class="nav-logo">
+            <img src="assets/mega.jpg" alt="Mega Imports" />
+        </div>
+        <a href="index.html" class="nav-back">← Voltar à Loja</a>
+        <a href="#" id="nav-wa" class="nav-wa" target="_blank">💬 Comprar agora</a>
+    </nav>
+
+    <!-- ─── BREADCRUMB ─── -->
+    <div class="breadcrumb">
+        <a href="index.html">Loja</a>
+        <span>›</span>
+        <span id="crumb-cat">Produtos</span>
+        <span>›</span>
+        <span id="crumb-name">Produto</span>
+    </div>
+
+    <!-- ─── PRODUCT HERO ─── -->
+    <div class="product-hero">
+
+        <!-- CAROUSEL -->
+        <div class="carousel-wrap">
+            <div class="carousel-main">
+                <div class="carousel-badge-wrap">
+                    <span class="badge-tag badge-new">Novo</span>
+                    <span class="badge-tag badge-imported" id="badge-origin">Importado</span>
+                </div>
+
+                <!-- Slides gerados por JS -->
+                <div id="slides-container"></div>
+
+                <div class="carousel-arrows">
+                    <button class="arrow-btn" id="prev-btn">‹</button>
+                    <button class="arrow-btn" id="next-btn">›</button>
+                </div>
+
+                <div class="carousel-nav" id="dots-container"></div>
+            </div>
+
+            <div class="thumbs-strip" id="thumbs-container"></div>
+        </div>
+
+        <!-- INFO PANEL -->
+        <div class="product-info-panel">
+
+            <div>
+                <div class="product-category-label" id="info-category">Categoria</div>
+                <h1 class="product-main-title" id="info-name">Nome do Produto</h1>
+                <p class="product-subtitle" id="info-brand">Marca · País de origem</p>
+            </div>
+
+            <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-count">4.9 · 47 avaliações</span>
+            </div>
+
+            <div class="sep"></div>
+
+            <!-- DESCRIPTION -->
+            <div>
+                <div class="desc-title">Descrição</div>
+                <p class="desc-text" id="info-desc">Carregando descrição...</p>
+            </div>
+
+            <!-- SPECS -->
+            <div>
+                <div class="desc-title">Especificações</div>
+                <div class="specs-grid" id="specs-grid"></div>
+            </div>
+
+            <!-- SIZE SELECTOR (only for shoes) -->
+            <div id="size-section" style="display:none;">
+                <div class="size-wrap">
+                    <div class="desc-title">Tamanho — <span id="selected-size-label"
+                            style="color:var(--text-muted);font-size:9px;font-weight:400;">Selecione</span></div>
+                    <div class="size-grid" id="size-grid"></div>
+                </div>
+            </div>
+
+            <div class="sep"></div>
+
+            <!-- PAYMENT -->
+            <div class="payment-section">
+                <div class="desc-title">Métodos de Pagamento</div>
+                <div class="payment-grid">
+                    <div class="payment-chip"><span class="payment-chip-icon">⚡</span> Pix</div>
+                    <div class="payment-chip"><span class="payment-chip-icon">💳</span> Cartão de Crédito</div>
+                    <div class="payment-chip"><span class="payment-chip-icon">🏦</span> Boleto</div>
+                    <div class="payment-chip"><span class="payment-chip-icon">💰</span> Transferência</div>
+                </div>
+                <div class="installment-note">
+                    💳 Parcelamento em até <strong>12x</strong> no cartão de crédito · Pix com desconto especial
+                </div>
+            </div>
+
+            <!-- DELIVERY -->
+            <div class="delivery-section">
+                <div class="desc-title">Formas de Entrega</div>
+
+                <div class="delivery-option">
+                    <span class="delivery-icon">📦</span>
+                    <div>
+                        <div class="delivery-name">SEDEX / PAC — Correios</div>
+                        <div class="delivery-desc">Entrega para todo o Brasil com rastreamento em tempo real</div>
+                    </div>
+                    <span class="delivery-tag tag-fast">3–10 dias</span>
+                </div>
+
+                <div class="delivery-option">
+                    <span class="delivery-icon">⚡</span>
+                    <div>
+                        <div class="delivery-name">SEDEX 10 — Expresso</div>
+                        <div class="delivery-desc">Entrega prioritária para capitais e regiões metropolitanas</div>
+                    </div>
+                    <span class="delivery-tag tag-fast">1–3 dias</span>
+                </div>
+
+                <div class="delivery-option">
+                    <span class="delivery-icon">🤝</span>
+                    <div>
+                        <div class="delivery-name">Retirada em Mãos</div>
+                        <div class="delivery-desc">Combine via WhatsApp · Aracaju · SE</div>
+                    </div>
+                    <span class="delivery-tag tag-free">Grátis</span>
+                </div>
+
+                <div class="delivery-option">
+                    <span class="delivery-icon">🏙️</span>
+                    <div>
+                        <div class="delivery-name">Motoboy Local</div>
+                        <div class="delivery-desc">Entrega local em Aracaju e região — combine pelo chat</div>
+                    </div>
+                    <span class="delivery-tag tag-fast">Mesmo dia</span>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-section">
+                <a href="#" id="main-wa-btn" class="btn-whatsapp" target="_blank">
+                    💬 Quero comprar — Falar no WhatsApp
+                </a>
+                <a href="#" id="consult-wa-btn" class="btn-consult" target="_blank">
+                    📷 Ver mais fotos no Instagram
+                </a>
+
+                <div class="trust-row">
+                    <div class="trust-item"><span class="trust-icon">✓</span> 100% Autêntico</div>
+                    <div class="trust-item"><span class="trust-icon">✓</span> Nota Fiscal</div>
+                    <div class="trust-item"><span class="trust-icon">✓</span> Troca Garantida</div>
+                    <div class="trust-item"><span class="trust-icon">✓</span> Pagamento Seguro</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ─── RELATED ─── -->
+    <div class="related-section">
+        <div class="related-header">
+            <div class="related-label">Você também pode gostar</div>
+            <h2 class="related-title">Mais produtos <em>importados</em></h2>
+        </div>
+        <div class="related-grid" id="related-grid"></div>
+    </div>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <img src="assets/mega.jpg" alt="Mega Imports" />
+        <p class="footer-copy">© 2024 <span>Mega Imports</span> · Todos os direitos reservados</p>
+        <a href="index.html"
+            style="font-size:10px;color:var(--text-muted);text-decoration:none;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s;"
+            onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#888888'">← Voltar à Loja</a>
+    </footer>
+
+    <script>
+        // ─── PRODUCT DATABASE ───
+        const WHATSAPP = '5579999999999';
+
+        const products = {
+            'tenis-air-force': {
+                id: 'tenis-air-force',
+                name: 'Air Force Premium',
+                category: 'Calçados',
+                brand: 'Importado · EUA',
+                origin: 'Importado · EUA',
+                emoji: ['👟', '🔥', '📦', '✨', '🌟'],
+                desc: 'O clássico silhueta que nunca sai de moda. O Air Force Premium é confeccionado em couro de alta qualidade com palmilha de espuma de memória para máximo conforto. Cada par é inspecionado individualmente antes de ser enviado ao cliente, garantindo perfeição em cada detalhe. Disponível em colorways exclusivos importados diretamente dos EUA.',
+                specs: [
+                    { label: 'Material', value: 'Couro Legítimo' },
+                    { label: 'Solado', value: 'Borracha Premium' },
+                    { label: 'Origem', value: 'Estados Unidos' },
+                    { label: 'Garantia', value: '90 dias' },
+                ],
+                sizes: ['37', '38', '39', '40', '41', '42', '43', '44'],
+                unavailable: ['41, 43,zz42'],
+                hasSize: true,
+                related: ['stiletto-luxury', 'bota-chelsea', 'relogio-chronos'],
+            },
+            'stiletto-luxury': {
+                id: 'stiletto-luxury',
+                name: 'Stiletto Luxury',
+                category: 'Calçados',
+                brand: 'Importado · Itália',
+                origin: 'Importado · Itália',
+                emoji: ['👠', '💎', '✨', '🌹', '🔥'],
+                desc: 'Elegância italiana em cada passo. O Stiletto Luxury é esculpido em couro florentino de primeira linha com acabamento feito à mão por artesãos italianos. O salto em madeira nobre revestida de couro proporciona estabilidade e sofisticação. Um item que eleva qualquer look a um novo patamar de refinamento.',
+                specs: [
+                    { label: 'Material', value: 'Couro Florentino' },
+                    { label: 'Salto', value: '10 cm — Madeira Nobre' },
+                    { label: 'Origem', value: 'Itália' },
+                    { label: 'Garantia', value: '90 dias' },
+                ],
+                sizes: ['35', '36', '37', '38', '39', '40'],
+                unavailable: ['35'],
+                hasSize: true,
+                related: ['tenis-air-force', 'bota-chelsea', 'parfum-nuit'],
+            },
+            'bota-chelsea': {
+                id: 'bota-chelsea',
+                name: 'Bota Chelsea Couro',
+                category: 'Calçados',
+                brand: 'Importado · Reino Unido',
+                origin: 'Importado · Reino Unido',
+                emoji: ['🥾', '🔥', '📦', '💎', '✨'],
+                desc: 'Ícone do estilo britânico com quase dois séculos de história. A Bota Chelsea em couro plena-flor é curtida pelo método traditional e envelhecida naturalmente para criar uma pátina única. Detalhes em elástico lateral, solado Goodyear-welt e forro em couro respirável. Uma peça que só melhora com o tempo.',
+                specs: [
+                    { label: 'Material', value: 'Couro Plena-Flor' },
+                    { label: 'Construção', value: 'Goodyear-Welt' },
+                    { label: 'Origem', value: 'Reino Unido' },
+                    { label: 'Garantia', value: '120 dias' },
+                ],
+                sizes: ['38', '39', '40', '41', '42', '43', '44', '45'],
+                unavailable: ['45'],
+                hasSize: true,
+                related: ['tenis-air-force', 'stiletto-luxury', 'relogio-chronos'],
+            },
+            'oud-royal': {
+                id: 'oud-royal',
+                name: 'Oud Royal Collection',
+                category: 'Perfumes',
+                brand: 'Importado · Dubai',
+                origin: 'Importado · Dubai',
+                emoji: ['🌹', '💎', '✨', '🕌', '🔥'],
+                desc: 'Uma composição olfativa de rara beleza inspirada nas tradições milenares do Oriente Médio. O Oud Royal abre com bergamota calabresa e rosa de Damasco, evoluindo para um coração de oud agarwood selvagem — matéria-prima das mais preciosas do mundo — e seca com âmbar branco, baunilha de Madagascar e almíscar. Projeção poderosa, fixação excepcional.',
+                specs: [
+                    { label: 'Volume', value: '100ml EDP' },
+                    { label: 'Família', value: 'Oriental · Amadeirado' },
+                    { label: 'Fixação', value: 'Excepcional (12h+)' },
+                    { label: 'Origem', value: 'Dubai' },
+                ],
+                hasSize: false,
+                related: ['parfum-nuit', 'relogio-chronos', 'tenis-air-force'],
+            },
+            'parfum-nuit': {
+                id: 'parfum-nuit',
+                name: 'Parfum de Nuit',
+                category: 'Perfumes',
+                brand: 'Importado · França',
+                origin: 'Importado · França',
+                emoji: ['💎', '🌸', '✨', '🌙', '🔥'],
+                desc: 'Criado pela renomada Maison parisiense, o Parfum de Nuit é uma ode à sedução noturna. Notas de pimenta rosa e yuzu japonês abrem com frescor vibrante; o coração de íris pó-de-arroz e jasmim sambac confere feminilidade etérea; e a base de sândalo, cedro e benjoim cria uma teia sensorial inesquecível. Para quem quer ser lembrado.',
+                specs: [
+                    { label: 'Volume', value: '75ml EDP' },
+                    { label: 'Família', value: 'Floral · Almiscarado' },
+                    { label: 'Fixação', value: 'Alta (8-10h)' },
+                    { label: 'Origem', value: 'França' },
+                ],
+                hasSize: false,
+                related: ['oud-royal', 'relogio-chronos', 'stiletto-luxury'],
+            },
+            'relogio-chronos': {
+                id: 'relogio-chronos',
+                name: 'Chronos Elite',
+                category: 'Relógios',
+                brand: 'Importado · Suíça',
+                origin: 'Importado · Suíça',
+                emoji: ['⌚', '💎', '✨', '🔥', '🌟'],
+                desc: 'Engenharia relojoeira suíça em seu estado mais puro. O Chronos Elite abriga um movimento automático de 25 joias com reserva de marcha de 72 horas. Caixa em aço cirúrgico de 42mm com tratamento PVD dourado, mostrador guilhoché com índices aplicados em ouro rose e pulseira de couro de jacaré genuíno. Entregue com caixa premium, certificado de autenticidade e garantia internacional.',
+                specs: [
+                    { label: 'Movimento', value: 'Automático 25 Joias' },
+                    { label: 'Caixa', value: 'Aço 42mm + PVD Gold' },
+                    { label: 'Estanqueidade', value: '50m / 5 ATM' },
+                    { label: 'Origem', value: 'Suíça' },
+                ],
+                hasSize: false,
+                related: ['oud-royal', 'parfum-nuit', 'tenis-air-force'],
+            },
+        };
+
+        const allProducts = [
+            { id: 'tenis-air-force', name: 'Air Force Premium', cat: 'Calçados', emoji: '👟', brand: 'EUA' },
+            { id: 'stiletto-luxury', name: 'Stiletto Luxury', cat: 'Calçados', emoji: '👠', brand: 'Itália' },
+            { id: 'bota-chelsea', name: 'Bota Chelsea Couro', cat: 'Calçados', emoji: '🥾', brand: 'Reino Unido' },
+            { id: 'oud-royal', name: 'Oud Royal Collection', cat: 'Perfumes', emoji: '🌹', brand: 'Dubai' },
+            { id: 'parfum-nuit', name: 'Parfum de Nuit', cat: 'Perfumes', emoji: '💎', brand: 'França' },
+            { id: 'relogio-chronos', name: 'Chronos Elite', cat: 'Relógios', emoji: '⌚', brand: 'Suíça' },
+        ];
+
+        // ─── GET PRODUCT FROM URL ───
+        function getProductId() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id') || 'tenis-air-force';
+        }
+
+        let currentSlide = 0;
+        let currentProduct = null;
+
+        // ─── BUILD WHATSAPP URL ───
+        function buildWAUrl(product, selectedSize) {
+            const sizeText = selectedSize ? `, tamanho ${selectedSize}` : '';
+            const msg = `Olá! 👋 Tenho interesse no produto *${product.name}* (${product.brand}${sizeText}). Pode me dar mais informações e o preço? 😊`;
+            return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+        }
+
+        // ─── CAROUSEL ───
+        function buildCarousel(emojis) {
+            const slidesEl = document.getElementById('slides-container');
+            const dotsEl = document.getElementById('dots-container');
+            const thumbsEl = document.getElementById('thumbs-container');
+
+            slidesEl.innerHTML = '';
+            dotsEl.innerHTML = '';
+            thumbsEl.innerHTML = '';
+
+            emojis.forEach((e, i) => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide' + (i === 0 ? ' active' : '');
+                slide.innerHTML = `<span>${e}</span>`;
+                slidesEl.appendChild(slide);
+
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => goTo(i);
+                dotsEl.appendChild(dot);
+
+                const thumb = document.createElement('div');
+                thumb.className = 'thumb' + (i === 0 ? ' active' : '');
+                thumb.innerHTML = e;
+                thumb.onclick = () => goTo(i);
+                thumbsEl.appendChild(thumb);
+            });
+        }
+
+        function goTo(idx) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const thumbs = document.querySelectorAll('.thumb');
+
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            thumbs[currentSlide].classList.remove('active');
+
+            currentSlide = (idx + slides.length) % slides.length;
+
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+            thumbs[currentSlide].classList.add('active');
+        }
+
+        document.getElementById('prev-btn').onclick = () => goTo(currentSlide - 1);
+        document.getElementById('next-btn').onclick = () => goTo(currentSlide + 1);
+
+        // Auto-play
+        let autoPlay = setInterval(() => goTo(currentSlide + 1), 3500);
+        document.querySelector('.carousel-main').addEventListener('mouseenter', () => clearInterval(autoPlay));
+        document.querySelector('.carousel-main').addEventListener('mouseleave', () => {
+            autoPlay = setInterval(() => goTo(currentSlide + 1), 3500);
+        });
+
+        // ─── BUILD SIZE SELECTOR ───
+        let selectedSize = '';
+
+        function buildSizes(sizes, unavailable) {
+            const grid = document.getElementById('size-grid');
+            grid.innerHTML = '';
+            sizes.forEach(s => {
+                const btn = document.createElement('button');
+                btn.className = 'size-btn' + (unavailable.includes(s) ? ' unavailable' : '');
+                btn.textContent = s;
+                if (!unavailable.includes(s)) {
+                    btn.onclick = () => {
+                        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+                        btn.classList.add('selected');
+                        selectedSize = s;
+                        document.getElementById('selected-size-label').textContent = `Nº ${s} selecionado`;
+                        updateWALinks();
+                    };
+                }
+                grid.appendChild(btn);
+            });
+        }
+
+        // ─── BUILD SPECS ───
+        function buildSpecs(specs) {
+            const grid = document.getElementById('specs-grid');
+            grid.innerHTML = '';
+            specs.forEach(s => {
+                grid.innerHTML += `
+        <div class="spec-item">
+          <span class="spec-label">${s.label}</span>
+          <span class="spec-value">${s.value}</span>
+        </div>`;
+            });
+        }
+
+        // ─── BUILD RELATED ───
+        function buildRelated(ids) {
+            const grid = document.getElementById('related-grid');
+            grid.innerHTML = '';
+            ids.forEach(id => {
+                const p = allProducts.find(x => x.id === id);
+                if (!p) return;
+                grid.innerHTML += `
+        <a href="produto.html?id=${p.id}" class="related-card">
+          <div class="related-img-wrap">
+            <span class="related-img">${p.emoji}</span>
+          </div>
+          <div class="related-info">
+            <div class="related-cat">${p.cat}</div>
+            <div class="related-name">${p.name}</div>
+            <div class="related-brand">Importado · ${p.brand}</div>
+          </div>
+        </a>`;
+            });
+        }
+
+        // ─── UPDATE WA LINKS ───
+        function updateWALinks() {
+            const url = buildWAUrl(currentProduct, selectedSize);
+            document.getElementById('main-wa-btn').href = url;
+            document.getElementById('nav-wa').href = url;
+            document.getElementById('float-wa').href = url;
+        }
+
+        // ─── LOAD PRODUCT ───
+        function loadProduct() {
+            const id = getProductId();
+            const p = products[id] || products['tenis-air-force'];
+            currentProduct = p;
+
+            // Page title & meta
+            document.getElementById('page-title').textContent = `${p.name} — MEGA IMPORTS`;
+            document.getElementById('crumb-cat').textContent = p.category;
+            document.getElementById('crumb-name').textContent = p.name;
+            document.getElementById('badge-origin').textContent = p.origin;
+
+            // Info
+            document.getElementById('info-category').textContent = p.category;
+            document.getElementById('info-name').textContent = p.name;
+            document.getElementById('info-brand').textContent = p.brand;
+            document.getElementById('info-desc').textContent = p.desc;
+
+            // Carousel
+            buildCarousel(p.emoji);
+
+            // Specs
+            buildSpecs(p.specs);
+
+            // Sizes
+            if (p.hasSize) {
+                document.getElementById('size-section').style.display = 'block';
+                buildSizes(p.sizes, p.unavailable || []);
+            }
+
+            // Related
+            buildRelated(p.related || []);
+
+            // WA links
+            updateWALinks();
+
+            // Instagram
+            document.getElementById('consult-wa-btn').href = 'https://instagram.com/megaimports';
+
+            // Page entrance animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 50);
+        }
+
+        loadProduct();
+    </script>
+</body>
+
+</html>

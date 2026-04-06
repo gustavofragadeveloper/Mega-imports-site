@@ -5,18 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MEGA IMPORTS — Calçados, Perfumes & Relógios Importados</title>
-
-    <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
-
-    <!-- SEU CSS -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
 
     <!-- ─── FLOATING WA ─── -->
     <a href="https://wa.me/5579999999999?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20produtos%20da%20Mega%20Imports!"
@@ -27,7 +22,7 @@
     <!-- ─── NAV ─── -->
     <nav>
         <div class="nav-logo">
-            <img src=assets/mega.jpg alt="Mega Imports Logo" />
+            <img src="assets/mega.jpg" alt="Mega Imports Logo" />
         </div>
         <ul class="nav-links">
             <li><a href="#sobre">Sobre</a></li>
@@ -49,7 +44,7 @@
         <div class="hero-content">
             <div class="hero-badge">Importados Premium · Qualidade Garantida</div>
             <div class="hero-logo">
-                <img src=assets/mega.jpg alt="Mega Imports Logo" />
+                <img src="assets/mega.jpg" alt="Mega Imports Logo" />
             </div>
             <h1>Luxo que <em>você merece</em><br>ao alcance das suas mãos</h1>
             <p>Calçados · Perfumes · Relógios · Importados</p>
@@ -108,7 +103,7 @@
         <div class="about" style="padding: 0;">
             <div class="about-visual">
                 <div class="about-img-box">
-                    <img src=assets/mega.jpg alt="Mega Imports Logo" />
+                    <img src="assets/mega.jpg" alt="Mega Imports Logo" />
                     <div class="about-badge">
                         <span style="font-size:18px;">👑</span>
                         Desde<br>2016
@@ -165,22 +160,21 @@
         </div>
 
         <div class="category-tabs">
-            <button class="tab-btn active" data-filter="all">Todos</button>
-            <button class="tab-btn" data-filter="calcados">👟 Calçados</button>
-            <button class="tab-btn" data-filter="perfumes">🌹 Perfumes</button>
-            <button class="tab-btn" data-filter="relogios">⌚ Relógios</button>
+            <button class="tab-btn active">Todos</button>
+            <button class="tab-btn">👟 Calçados</button>
+            <button class="tab-btn">🌹 Perfumes</button>
+            <button class="tab-btn">⌚ Relógios</button>
         </div>
 
         <div class="products-grid">
-
             <!-- Calçados -->
-            <div class="product-card" data-category="calcados">
+            <a href="produto.html?id=tenis-air-force" class="product-card"
+                style="text-decoration:none;color:inherit;display:block;">
                 <div class="product-img-wrap">
                     <div class="product-img">👟</div>
                 </div>
                 <div class="product-overlay">
-                    <a href="https://wa.me/5579999999999?text=Olá!%20Tenho%20interesse%20nos%20Tênis%20Air%20Force!"
-                        class="product-overlay-btn" target="_blank">💬 Consultar Preço</a>
+                    <span class="product-overlay-btn">👁 Ver Produto Completo</span>
                 </div>
                 <div class="product-info">
                     <div class="product-category">Calçados</div>
@@ -191,15 +185,15 @@
                         <span class="price-badge">Consulte</span>
                     </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-card" data-category="calcados">
+            <a href="produto.html?id=stiletto-luxury" class="product-card"
+                style="text-decoration:none;color:inherit;display:block;">
                 <div class="product-img-wrap">
                     <div class="product-img">👠</div>
                 </div>
                 <div class="product-overlay">
-                    <a href="https://wa.me/5579999999999?text=Olá!%20Tenho%20interesse%20nos%20sapatos%20de%20luxo!"
-                        class="product-overlay-btn" target="_blank">💬 Consultar Preço</a>
+                    <span class="product-overlay-btn">👁 Ver Produto Completo</span>
                 </div>
                 <div class="product-info">
                     <div class="product-category">Calçados</div>
@@ -210,15 +204,15 @@
                         <span class="price-badge">Consulte</span>
                     </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-card" data-category="calcados">
+            <a href="produto.html?id=bota-chelsea" class="product-card"
+                style="text-decoration:none;color:inherit;display:block;">
                 <div class="product-img-wrap">
                     <div class="product-img">🥾</div>
                 </div>
                 <div class="product-overlay">
-                    <a href="https://wa.me/5579999999999?text=Olá!%20Tenho%20interesse%20nas%20botas%20importadas!"
-                        class="product-overlay-btn" target="_blank">💬 Consultar Preço</a>
+                    <span class="product-overlay-btn">👁 Ver Produto Completo</span>
                 </div>
                 <div class="product-info">
                     <div class="product-category">Calçados</div>
@@ -229,16 +223,16 @@
                         <span class="price-badge">Consulte</span>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Perfumes -->
-            <div class="product-card" data-category="perfumes">
+            <a href="produto.html?id=oud-royal" class="product-card"
+                style="text-decoration:none;color:inherit;display:block;">
                 <div class="product-img-wrap">
                     <div class="product-img">🌹</div>
                 </div>
                 <div class="product-overlay">
-                    <a href="https://wa.me/5579999999999?text=Olá!%20Tenho%20interesse%20nos%20perfumes%20importados!"
-                        class="product-overlay-btn" target="_blank">💬 Consultar Preço</a>
+                    <span class="product-overlay-btn">👁 Ver Produto Completo</span>
                 </div>
                 <div class="product-info">
                     <div class="product-category">Perfumes</div>
@@ -249,15 +243,15 @@
                         <span class="price-badge">Consulte</span>
                     </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-card" data-category="perfumes">
+            <a href="produto.html?id=parfum-nuit" class="product-card"
+                style="text-decoration:none;color:inherit;display:block;">
                 <div class="product-img-wrap">
                     <div class="product-img">💎</div>
                 </div>
                 <div class="product-overlay">
-                    <a href="https://wa.me/5579999999999?text=Olá!%20Tenho%20interesse%20em%20perfumes%20de%20luxo!"
-                        class="product-overlay-btn" target="_blank">💬 Consultar Preço</a>
+                    <span class="product-overlay-btn">👁 Ver Produto Completo</span>
                 </div>
                 <div class="product-info">
                     <div class="product-category">Perfumes</div>
@@ -268,16 +262,16 @@
                         <span class="price-badge">Consulte</span>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Relógios -->
-            <div class="product-card" data-category="relogios"> 
+            <a href="produto.html?id=relogio-chronos" class="product-card"
+                style="text-decoration:none;color:inherit;display:block;">
                 <div class="product-img-wrap">
                     <div class="product-img">⌚</div>
                 </div>
                 <div class="product-overlay">
-                    <a href="https://wa.me/5579999999999?text=Olá!%20Tenho%20interesse%20nos%20relógios%20importados!"
-                        class="product-overlay-btn" target="_blank">💬 Consultar Preço</a>
+                    <span class="product-overlay-btn">👁 Ver Produto Completo</span>
                 </div>
                 <div class="product-info">
                     <div class="product-category">Relógios</div>
@@ -288,7 +282,7 @@
                         <span class="price-badge">Consulte</span>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div style="text-align: center; margin-top: 48px;">
@@ -296,7 +290,6 @@
                 class="btn-primary" target="_blank" style="display: inline-block; position: relative; z-index: 1;">
                 Ver Todos os Produtos no WhatsApp
             </a>
-        </div>
         </div>
     </section>
 
@@ -517,8 +510,7 @@
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">
-                <img src=assets/mega.jpg alt="Mega Imports Logo" />
-
+                <img src="assets/mega.jpg" alt="Mega Imports Logo" />
                 <p class="footer-tagline">A sua loja de referência em importados de luxo — calçados, perfumes e relógios
                     das melhores marcas internacionais.</p>
             </div>
@@ -561,17 +553,7 @@
             <div class="footer-gold-line"></div>
         </div>
     </footer>
-    <!-- TODO O SEU HTML FICA AQUI EXATAMENTE COMO JÁ ESTÁ -->
-    <!-- NAV, HERO, SOBRE, PRODUTOS, DIFERENCIAIS, AVALIAÇÕES, CONTATO, FOOTER -->
 
-    <!-- SEU BOTÃO FLUTUANTE -->
-    <a href="https://wa.me/5579999999999?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20produtos%20da%20Mega%20Imports!"
-        class="floating-wa" target="_blank">
-        💬
-    </a>
-
-    <!-- SEU JS -->
-    <script src="script.js"></script>
 </body>
 
 </html>

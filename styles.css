@@ -1,20 +1,17 @@
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C96A;
+      --gold-dark: #8B6914;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --dark2: #1A1A1A;
+      --dark3: #222222;
+      --white: #FAFAFA;
+      --text-muted: #888888;
+      --text-light: #CCCCCC;
+    }
 
-   
-   :root {
-  --gold: #C9A84C;
-  --gold-light: #E8C96A;
-  --gold-dark: #8B6914;
-  --black: #0A0A0A;
-  --dark: #111111;
-  --dark2: #1A1A1A;
-  --dark3: #222222;
-  --white: #FAFAFA;
-  --text-muted: #888888;
-  --text-light: #CCCCCC;
-}
-
-   
-   * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html { scroll-behavior: smooth; }
 
@@ -1134,22 +1131,3 @@
       .why-grid { grid-template-columns: 1fr; }
       .hero-logo img { height: 90px; }
     }
-
-
-
-
-
-
-.product-card {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Quando o card aparecer, você pode adicionar uma animação de fade */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.product-card[style*="display: block"] {
-  animation: fadeIn 0.4s ease forwards;
-}
